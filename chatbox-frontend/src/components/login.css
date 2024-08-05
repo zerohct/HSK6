@@ -1,0 +1,117 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .login-paper {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-avatar {
+    margin-bottom: 16px;
+    background-color: #764ba2;
+  }
+  
+  .login-form {
+    width: 100%;
+  }
+  
+  .login-submit {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #667eea;
+    transition: background-color 0.3s;
+  }
+  
+  .login-submit:hover {
+    background-color: #5a6fd6;
+  }
+  
+  .login-signup {
+    margin-top: 16px;
+  }
+  
+  .login-signup a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .login-signup a:hover {
+    color: #5a6fd6;
+  }
+  .MuiInputBase-input {
+    color: #000000 !important;
+  }
+  
+
+  .MuiInputLabel-root {
+    color: #000000 !important; 
+  }
+
+  .register-container {
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .register-paper {
+    padding: 40px;
+    display: flex;
+    color: #000000;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-avatar {
+    margin-bottom: 16px;
+    background-color: #764ba2;
+  }
+  
+  .register-form {
+    width: 100%;
+  }
+  
+  .register-submit {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #667eea;
+    transition: background-color 0.3s;
+  }
+  
+  .register-submit:hover {
+    background-color: #5a6fd6;
+  }
+  
+  .register-signin {
+    margin-top: 16px;
+  }
+  
+  .register-signin a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .register-signin a:hover {
+    color: #5a6fd6;
+  }

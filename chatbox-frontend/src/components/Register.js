@@ -1,32 +1,48 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
-import { Container, Paper, TextField, Button, Typography, Box } from '@mui/material';
-import { toast } from 'react-toastify';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  Container,
+  Paper,
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Avatar,
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { toast } from "react-toastify";
+import "./login.css";
 
 function Register() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, password });
-      toast.success('Registered successfully! Please log in.');
-      navigate('/login');
+      await axios.post("http://localhost:5000/api/auth/register", {
+        username,
+        password,
+      });
+      toast.success("Registered successfully! Please log in.");
+      navigate("/login");
     } catch (error) {
-      toast.error('Registration failed: ' + error.response.data.error);
+      toast.error("Registration failed: " + error.response.data.error);
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper elevation={3} sx={{ marginTop: 8, padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography component="h1" variant="h5">
-          Register
+    <Container component="main" maxWidth="xs" className="register-container">
+      <Paper elevation={6} className="register-paper">
+        <Avatar className="register-avatar">
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5" gutterBottom>
+          Sign Up
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} className="register-form">
           <TextField
             margin="normal"
             required
@@ -38,6 +54,7 @@ function Register() {
             autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            variant="outlined"
           />
           <TextField
             margin="normal"
@@ -50,20 +67,23 @@ function Register() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            variant="outlined"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="register-submit"
           >
             Sign Up
           </Button>
-          <Link to="/login" style={{ textDecoration: 'none' }}>
-            <Typography variant="body2" align="center" sx={{ mt: 2 }}>
-              Already have an account? Sign In
-            </Typography>
-          </Link>
+          <Box className="register-signin">
+            <Link to="/login">
+              <Typography variant="body2" align="center">
+                Already have an account? Sign In
+              </Typography>
+            </Link>
+          </Box>
         </Box>
       </Paper>
     </Container>
