@@ -5,6 +5,7 @@
     color: #000000;
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding-top:80px;
   }
   
   .login-paper {
@@ -53,12 +54,12 @@
     color: #5a6fd6;
   }
   .MuiInputBase-input {
-    color: #000000 !important;
+    color: #fff !important;
   }
   
 
   .MuiInputLabel-root {
-    color: #000000 !important; 
+    color: #fff !important; 
   }
 
   .register-container {
@@ -68,6 +69,7 @@
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding-top:80px;
   }
   
   .register-paper {

@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+@font-face {
+  font-family: 'UVN BAI SAU';
+  src: url('./UVNBaiSau_B.TTF') format('truetype');
+}

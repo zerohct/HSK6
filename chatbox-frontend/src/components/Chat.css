@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   background-color: #f0f2f5;
+  fontFamily: 'UVN Bai Sau';
 }
 
 .chat-paper {
@@ -160,4 +161,8 @@
 
 .send-button:hover {
   background-color: #1565c0;
+}
+@font-face {
+  font-family: 'UVN BAI SAU';
+  src: url('../../assets/fonts/UVNBaiSau_B.TTF') format('truetype');
 }

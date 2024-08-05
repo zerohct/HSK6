@@ -27,10 +27,10 @@ function Login() {
         { username, password }
       );
       localStorage.setItem("token", response.data.token);
-      toast.success("Logged in successfully!");
+      toast.success("Đăng nhập thành công!");
       navigate("/chat");
     } catch (error) {
-      toast.error("Login failed: " + error.response.data.error);
+      toast.error("Đăng nhập thất bại! " + error.response.data.error);
     }
   };
 
@@ -40,16 +40,17 @@ function Login() {
         <Avatar className="login-avatar">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" gutterBottom>
-          Sign In
+        <Typography style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }} component="h1" variant="h5" gutterBottom>
+         Đăng Nhập
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} className="login-form">
+        <Box style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }}  component="form" onSubmit={handleSubmit} className="login-form">
           <TextField
+            
             margin="normal"
             required
             fullWidth
             id="username"
-            label="Username"
+            label="Tài Khoản"
             name="username"
             autoComplete="username"
             autoFocus
@@ -62,31 +63,34 @@ function Login() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Mật Khẩu"
             type="password"
             id="password"
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             variant="outlined"
+            
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             className="login-submit"
+            style={{ fontFamily: 'UVN BAI SAU, sans-serif' }}
           >
-            Sign In
+            ĐĂNG NHẬP
           </Button>
           <Box className="login-signup">
             <Link to="/register">
-              <Typography variant="body2" align="center">
-                Don't have an account? Sign Up
+              <Typography style={{ fontFamily: 'UVN BAI SAU, sans-serif' }} variant="body2" align="center">
+                Bạn không có tài khoản? Đăng Ký
               </Typography>
             </Link>
           </Box>
         </Box>
       </Paper>
+      
     </Container>
   );
 }

@@ -32,7 +32,7 @@ function Chat() {
       );
       setMessages(response.data.messages.reverse());
     } catch (error) {
-      toast.error("Failed to fetch messages: " + error.response.data.error);
+      toast.error("Không giử được tin nhắn !!! " + error.response.data.error);
     }
   };
 
@@ -52,7 +52,7 @@ function Chat() {
       ]);
       setInput("");
     } catch (error) {
-      toast.error("Failed to send message: " + error.response.data.error);
+      toast.error("Không giử được tin nhắn !!! " + error.response.data.error);
     }
   };
 
@@ -62,16 +62,16 @@ function Chat() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    toast.success("Logged out successfully!");
+    toast.success("Đăng xuất thành công!");
     navigate("/login");
   };
 
   return (
-    <Container className="chat-container" maxWidth="md">
+    <Container style={{fontFamily:'UVN BAI SAU'}} className="chat-container" maxWidth="md">
       <div className="chat-paper">
         <div className="chat-header">
           <Typography variant="h4" className="chat-title">
-            Chat Bot
+           Bot Chat
           </Typography>
           <Button
             variant="contained"
@@ -80,7 +80,7 @@ function Chat() {
             onClick={handleLogout}
             className="logout-button"
           >
-            Logout
+            Thoát
           </Button>
         </div>
         <div className="chat-list" ref={listRef}>
@@ -102,7 +102,7 @@ function Chat() {
           <input
             type="text"
             className="input-field"
-            placeholder="Type a message..."
+            placeholder="Vui lòng nhập tin nhắn..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />

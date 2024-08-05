@@ -26,21 +26,21 @@ function Register() {
         username,
         password,
       });
-      toast.success("Registered successfully! Please log in.");
+      toast.success("Đăng ký thành công! Vui lòng đăng nhập.");
       navigate("/login");
     } catch (error) {
-      toast.error("Registration failed: " + error.response.data.error);
+      toast.error("Đăng ký thất bại! " + error.response.data.error);
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs" className="register-container">
+    <Container style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }} component="main" maxWidth="xs" className="register-container">
       <Paper elevation={6} className="register-paper">
         <Avatar className="register-avatar">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" gutterBottom>
-          Sign Up
+        <Typography style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }} component="h1" variant="h5" gutterBottom>
+          Đăng Ký
         </Typography>
         <Box component="form" onSubmit={handleSubmit} className="register-form">
           <TextField
@@ -48,7 +48,7 @@ function Register() {
             required
             fullWidth
             id="username"
-            label="Username"
+            label="Tài Khoản"
             name="username"
             autoComplete="username"
             autoFocus
@@ -61,7 +61,7 @@ function Register() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Mật Khẩu"
             type="password"
             id="password"
             autoComplete="new-password"
@@ -74,13 +74,14 @@ function Register() {
             fullWidth
             variant="contained"
             className="register-submit"
+            style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }}
           >
-            Sign Up
+            Đăng Ký
           </Button>
           <Box className="register-signin">
             <Link to="/login">
-              <Typography variant="body2" align="center">
-                Already have an account? Sign In
+              <Typography style={{ fontFamily: 'UVN BAI SAU, sans-serif',textTransform:'uppercase' }} variant="body2" align="center">
+                Bạn đã có tài khoản? Đăng Nhập
               </Typography>
             </Link>
           </Box>
