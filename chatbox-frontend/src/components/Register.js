@@ -34,7 +34,7 @@ function Register() {
   };
 
   return (
-    <Container component="main" maxWidth="xs" className="register-container">
+    <Container component="main" maxWidth="xs" className="login-outer-container">
       <Paper elevation={6} className="register-paper">
         <Avatar className="register-avatar">
           <LockOutlinedIcon />

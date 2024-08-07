@@ -9,14 +9,19 @@ import {
   Typography,
   Box,
   Avatar,
+  InputAdornment,
+  IconButton,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { toast } from "react-toastify";
 import "./login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -27,21 +32,25 @@ function Login() {
         { username, password }
       );
       localStorage.setItem("token", response.data.token);
-      toast.success("Logged in successfully!");
+      toast.success("Đăng nhập thành công!");
       navigate("/chat");
     } catch (error) {
-      toast.error("Login failed: " + error.response.data.error);
+      toast.error("Đăng nhập thất bại: " + error.response.data.error);
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <Container component="main" maxWidth="xs" className="login-container">
+    <Container component="main" maxWidth="xs" className="login-outer-container">
       <Paper elevation={6} className="login-paper">
         <Avatar className="login-avatar">
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5" gutterBottom>
-          Sign In
+          Đăng nhập
         </Typography>
         <Box component="form" onSubmit={handleSubmit} className="login-form">
           <TextField
@@ -49,26 +58,39 @@ function Login() {
             required
             fullWidth
             id="username"
-            label="Username"
+            label="Tên đăng nhập"
             name="username"
             autoComplete="username"
             autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             variant="outlined"
+            InputProps={{
+              className: "login-input",
+            }}
           />
           <TextField
             margin="normal"
             required
             fullWidth
             name="password"
-            label="Password"
-            type="password"
+            label="Mật khẩu"
+            type={showPassword ? "text" : "password"}
             id="password"
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             variant="outlined"
+            InputProps={{
+              className: "login-input",
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={togglePasswordVisibility} edge="end">
+                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <Button
             type="submit"
@@ -76,12 +98,12 @@ function Login() {
             variant="contained"
             className="login-submit"
           >
-            Sign In
+            Đăng nhập
           </Button>
           <Box className="login-signup">
             <Link to="/register">
               <Typography variant="body2" align="center">
-                Don't have an account? Sign Up
+                Chưa có tài khoản? Đăng ký ngay
               </Typography>
             </Link>
           </Box>

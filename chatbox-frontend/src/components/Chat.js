@@ -67,51 +67,53 @@ function Chat() {
   };
 
   return (
-    <Container className="chat-container" maxWidth="md">
-      <div className="chat-paper">
-        <div className="chat-header">
-          <Typography variant="h4" className="chat-title">
-            Chat Bot
-          </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<LogoutIcon />}
-            onClick={handleLogout}
-            className="logout-button"
-          >
-            Logout
-          </Button>
-        </div>
-        <div className="chat-list" ref={listRef}>
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`message-container ${msg.isBot ? "bot" : "user"}`}
+    <div className="chat-wrapper">
+      <Container className="chat-container" maxWidth="md">
+        <div className="chat-paper">
+          <div className="chat-header">
+            <Typography variant="h4" className="chat-title">
+              Chat Bot
+            </Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              startIcon={<LogoutIcon />}
+              onClick={handleLogout}
+              className="logout-button"
             >
-              {msg.isBot && <div className="avatar bot">B</div>}
-              <div className={`message-bubble ${msg.isBot ? "bot" : "user"}`}>
-                {msg.content}
+              Logout
+            </Button>
+          </div>
+          <div className="chat-list" ref={listRef}>
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`message-container ${msg.isBot ? "bot" : "user"}`}
+              >
+                {msg.isBot && <div className="avatar bot">B</div>}
+                <div className={`message-bubble ${msg.isBot ? "bot" : "user"}`}>
+                  {msg.content}
+                </div>
+                {!msg.isBot && <div className="avatar user">U</div>}
               </div>
-              {!msg.isBot && <div className="avatar user">U</div>}
-            </div>
-          ))}
-          <div ref={messagesEndRef} />
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+          <form onSubmit={sendMessage} className="input-container">
+            <input
+              type="text"
+              className="input-field"
+              placeholder="Type a message..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button type="submit" className="send-button">
+              <SendIcon />
+            </button>
+          </form>
         </div>
-        <form onSubmit={sendMessage} className="input-container">
-          <input
-            type="text"
-            className="input-field"
-            placeholder="Type a message..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <button type="submit" className="send-button">
-            <SendIcon />
-          </button>
-        </form>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }
 
