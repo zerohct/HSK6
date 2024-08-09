@@ -1,4 +1,3 @@
-
 .chat-wrapper {
   display: flex;
   justify-content: center;
@@ -7,9 +6,12 @@
   background-color: #f0f2f5;
   padding: 20px;
 }
+
 .chat-container {
   height: 90vh;
   max-height: 800px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .chat-paper {
@@ -33,23 +35,25 @@
 
 .chat-title {
   font-weight: bold;
-  color: white !important;
+  color: white;
 }
 
 .logout-button {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
-  transition: background-color 0.3s !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: background-color 0.3s;
 }
 
 .logout-button:hover {
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .chat-list {
   flex-grow: 1;
   overflow-y: auto;
   padding: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }
 
 .chat-list::-webkit-scrollbar {
@@ -84,10 +88,11 @@
 }
 
 .message-bubble {
-  padding: 12px 18px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
   border-radius: 18px;
   font-size: 14px;
-  line-height: 1.5;
   max-width: 70%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
@@ -115,6 +120,7 @@
   align-items: center;
   font-size: 14px;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .avatar.bot {
@@ -147,19 +153,26 @@
 }
 
 .send-button {
-  background-color: #1976d2 !important;
-  color: white !important;
-  border-radius: 50% !important;
-  width: 50px !important;
-  height: 50px !important;
-  min-width: unset !important;
-  padding: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  transition: background-color 0.3s !important;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  min-width: unset;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
 }
 
 .send-button:hover {
-  background-color: #1565c0 !important;
+  background-color: #1565c0;
+}
+
+.send-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

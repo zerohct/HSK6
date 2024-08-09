@@ -64,7 +64,10 @@ router.post("/message", auth, async (req, res) => {
     });
     await botMessage.save();
 
-    res.json({ userMessage, botMessage });
+    res.json({
+      userMessage,
+      botMessage,
+    });
   } catch (error) {
     res.status(500).json({ error: "Failed to process message" });
   }
